@@ -3,6 +3,9 @@ import Message from '../models/message.model.js';
 
 export const sendMessage = async (req, res) => {
   try {
+
+    
+
     console.log("message sent", req.params.id);
     const { message } = req.body;
     const receiverId = req.params.id;
@@ -11,7 +14,13 @@ export const sendMessage = async (req, res) => {
     console.log("senderId", senderId);
     console.log("receiverId", receiverId);
 
-    const conversation = await Conversation.findOne({
+
+    // Validate payload
+    if (!message || !receiverId) {
+      return res.status(400).json({ message: "Invalid payload" });
+    }
+
+    let conversation = await Conversation.findOne({
       participants: { $all: [senderId, receiverId]},
     })
 
@@ -54,6 +63,10 @@ export const getMessages = async (req, res) => {
   try {
     const userToChatId = req.params.id;
     const senderId = req.user._id;
+
+    if (!userToChatId) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
 
     // populate the conversation with messages
     // bcz in messages there will be a list of ids

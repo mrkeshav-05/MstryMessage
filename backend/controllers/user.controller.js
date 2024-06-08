@@ -9,16 +9,7 @@ export const getUserForSidebar = async (req, res) => {
     const allUsersExceptYou = await User.find({ _id: { $ne: loggedInUser } }).select("-password");
 
     res.status(200).json(
-      allUsersExceptYou.map(user => {
-        // this is for showing only the required fields
-        return {
-          _id: user._id,
-          fullName: user.fullName,
-          username: user.username,
-          profilePicture: user.profilePicture,
-        }
-      })
-      // allUsersExceptYou
+      allUsersExceptYou
     )
   } catch (error) {
     console.log(error.message);
