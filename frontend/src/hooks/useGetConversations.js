@@ -24,7 +24,6 @@ const useGetConversations = () => {
 
     getConversations();
   }, [])
-
   return {loading, conversations};
 }
 

@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
 import { BsSend } from "react-icons/bs";
 import useSendMessage from '../../hooks/useSendMessage';
+import { useEffect, useRef } from 'react';
 const MessageInput = () => {
+
+  // 
+  const inputRef = useRef(null);
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+  // 
 
   const [message, setMessage] = useState('');
   const {loading, sendMessage} = useSendMessage();
@@ -18,6 +28,7 @@ const MessageInput = () => {
     <form className='px-4 my-3' onSubmit={handleSubmit} >
       <div className='w-full relative'>
         <input 
+        ref={inputRef}
         type="text" 
         className='border text-sm rounded-lg w-full p-2.5  bg-gray-700 border-gray-500 text-white'
         placeholder='Type a message...'

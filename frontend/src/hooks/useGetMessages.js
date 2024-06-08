@@ -2,8 +2,21 @@ import React, { useEffect, useState } from 'react'
 import useConversation from '../zustand/useConversation';
 
 const useGetMessages = () => {
-  const [loading, setLoading] = useState();
-  const {messages, setMessages, selectedConversation} = useConversation();
+  const [loading, setLoading] = useState(false);
+  const {messages, setMessages, selectedConversation, fetchMessages} = useConversation();
+
+
+  // 
+  useEffect(() => {
+    if (selectedConversation?._id) {
+      fetchMessages(selectedConversation._id);
+    }
+  }, [selectedConversation?._id]);
+  // 
+
+
+
+
 
   useEffect(()=>{
     const getMessages = async () => {
@@ -26,7 +39,7 @@ const useGetMessages = () => {
 
   }, [selectedConversation?._id, setMessages]);
 
-  return { loading, messages }
+  return { loading: useConversation((state)=>state.loading), messages }
 }
 
 export default useGetMessages
