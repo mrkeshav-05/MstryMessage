@@ -13,12 +13,20 @@ const useLogin = () => {
     if (!isSuccess) { return; }
     try {
       setLoading(true);
+      // console.log('/api/auth/login')
+      // console.log()
+      // console.log('Sending request to http://localhost:8000/api/auth/login');
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({username, password})
       });
       const data = await res.json();
+      // console.log(res.status)
+      if(!res.ok){
+        const errorData = await res.json();
+        throw new Error(errorData.error || 'Login failed');
+      }
       if(data.error) {
         throw new Error(data.error);
       }

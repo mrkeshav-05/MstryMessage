@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { useAuthContext } from './context/AuthContext.jsx';
 import 'react-toastify/dist/ReactToastify.css';
+import Error from './pages/error/Error.jsx';
 function App() {
 
   const { authUser } = useAuthContext();
@@ -13,12 +14,12 @@ function App() {
   return (
     <div className='p-4 h-screen flex items-center justify-center' >
       <Routes>
-        <Route path='/' element={authUser ? <Home /> : <Navigate to='/login' />} />
+        <Route path='/' element={authUser ? <Home /> : <Navigate to='/login' />} errorElement={<Error/>}  />
         <Route path='/login' element={authUser ? <Navigate to="/" /> : <Login />} />
         <Route path='/signup' element={authUser ? <Navigate to="/" /> : <Signup />} />
       </Routes>
       
-      <ToastContainer/>
+      {/* <ToastContainer/> */}
 
 
     </div>
