@@ -10,7 +10,7 @@ const useGetConversations = () => {
       setLoading(true)
       try {
         console.log("hello i am fetching")
-        const res = await fetch(`/api/users`).then((response) => {
+        const res = await fetch('http://localhost:8000/api/users').then((response) => {
           console.log("fetching")
           console.log(response.url)
         });

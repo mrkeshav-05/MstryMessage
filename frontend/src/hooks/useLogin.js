@@ -16,7 +16,7 @@ const useLogin = () => {
       // console.log('/api/auth/login')
       // console.log()
       // console.log('Sending request to http://localhost:8000/api/auth/login');
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('http://localhost:8000/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({username, password})

@@ -5,7 +5,7 @@ import connectToDatabase from './db/connectToDatabase.js';
 import messageRoutes from './routes/message.routes.js'
 import userRoutes from './routes/user.routes.js';
 import cookieParser from 'cookie-parser';
-import { server } from './socket/socket.js';
+// import { server } from './socket/socket.js';
 import cors from 'cors';
 dotenv.config();
 
@@ -13,12 +13,12 @@ const app = express();
 const PORT = process.env.PORT || 8000 ;
 
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST'],
-  credentials: true,
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-};
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+//   methods: ['GET', 'POST'],
+//   credentials: true,
+//   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+// };
 
 
 app.use(cors());
