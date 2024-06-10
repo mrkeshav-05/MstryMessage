@@ -4,7 +4,7 @@ import User from '../models/user.model.js';
 const protectRoute = async (req, res, next) => {
   try {
     const token = req.cookies.token;
-    console.log("--"+token+"--");
+    // console.log("--"+token+"--");
     if(!token){
       return res.status(401).json({
         message: "You need to be logged in to access this route"
