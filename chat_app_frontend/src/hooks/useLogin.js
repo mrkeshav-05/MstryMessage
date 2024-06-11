@@ -34,8 +34,9 @@ const useLogin = () => {
 
       localStorage.setItem("chat-user", JSON.stringify(data));
       setAuthUser(data);
+      toast.dark("Congratulations! for login 🎉")
     } catch (error) {
-      toast.dark(error.message);
+      toast.dark('Bkl sahi details daal 😡');
     } finally {
       setLoading(false);
     }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FiSearch } from "react-icons/fi";
 import useConversation from '../../zustand/useConversation';
 import useGetConversations from '../../hooks/useGetConversations';
+// import toast from 'react-hot-toast';
 import { toast } from 'react-toastify';
 const SearchInput = () => {
 
@@ -13,7 +14,7 @@ const SearchInput = () => {
     e.preventDefault();
     if(!search) return;
     if(search.length < 3) {
-      return toast.dark('Search term must be at least 3 characters')
+      return toast('Search term must be at least 3 characters')
     }
     const conversation = conversations.find(conversation => conversation.fullName.toLowerCase().includes(search.toLowerCase()));
     if(conversation){

@@ -31,6 +31,7 @@ const useSignUp = () => {
 
       // context
       setAuthUser(data);
+      toast.dark('Ye! Account created 😍😘');
     } catch (error) {
       toast.dark(error.message);
     }finally{

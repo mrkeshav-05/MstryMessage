@@ -19,6 +19,7 @@ const useLogout = () => {
       localStorage.removeItem('chat-user')
       console.log(localStorage.getItem('chat-user'))
       setAuthUser(null)
+      toast.dark("Tussi kyu gye 😭😭")
     } catch (error) {
       toast.dark(error.message)
     } finally {

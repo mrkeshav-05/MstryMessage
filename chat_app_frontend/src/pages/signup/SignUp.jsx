@@ -37,7 +37,7 @@ const SignUp = () => {
 						</label>
 						<input
 							type='text'
-							placeholder='John Doe'
+							placeholder='Keshav Thakur'
 							className='w-full input input-bordered  h-10'
 							value={inputs.fullName}
 							onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
@@ -50,7 +50,7 @@ const SignUp = () => {
 						</label>
 						<input
 							type='text'
-							placeholder='johndoe'
+							placeholder='mrkeshav.05'
 							className='w-full input input-bordered h-10'
 							value={inputs.username}
 							onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
@@ -93,8 +93,8 @@ const SignUp = () => {
 						Already have an account?
 					</Link>
 
-					<div>
-						<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
+					<div className="flex justify-center">
+						<button className='btn w-3/4 bg-[#0033ff78] hover:bg-blue-600 border-none btn-sm mt-2 border border-slate-700' disabled={loading}>
 							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
 						</button>
 					</div>

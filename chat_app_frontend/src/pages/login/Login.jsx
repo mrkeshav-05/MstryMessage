@@ -28,7 +28,7 @@ const Login = () => {
 						</label>
 						<input
 							type='text'
-							placeholder='Enter username'
+							placeholder='mrkeshav.05'
 							className='w-full input input-bordered h-10'
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
@@ -51,8 +51,8 @@ const Login = () => {
 						{"Don't"} have an account?
 					</Link>
 
-					<div>
-						<button className='btn btn-block btn-sm mt-2' disabled={loading}>
+					<div className="flex justify-center">
+						<button className='btn  w-3/4 bg-[#0033ff78] hover:bg-blue-600 border-none btn-sm mt-2' disabled={loading}>
 							{loading ? <span className='loading loading-spinner '></span> : "Login"}
 						</button>
 					</div>
