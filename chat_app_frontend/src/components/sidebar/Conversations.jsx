@@ -11,7 +11,7 @@ const Conversations = () => {
       {loading ? (
         <span className='loading loading-spinner mx-auto'></span>
       ) : (
-        conversations && conversations.map((conversation, idx) => (
+        conversations && Array.isArray(conversations) && conversations.map((conversation, idx) => (
           <Conversation
             key={conversation._id}
             conversation={conversation}
@@ -19,6 +19,7 @@ const Conversations = () => {
             lastIdx={idx === conversations.length - 1}
           />
         ))
+        // <h1>hello</h1>
       )}
     </div>
   )

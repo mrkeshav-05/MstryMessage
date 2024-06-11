@@ -1,6 +1,6 @@
 import React from 'react'
 import useConversation from '../../zustand/useConversation';
-// import { useSocketContext } from '../../context/SocketContext';
+import { useSocketContext } from '../../context/SocketContext';
 
 const Conversation = ({ conversation, emoji, lastIdx}) => {
 
@@ -8,8 +8,13 @@ const Conversation = ({ conversation, emoji, lastIdx}) => {
 
   const isSelected = selectedConversation?._id === conversation._id;
 
-  // const {onlineUsers} = useSocketContext();
-  // const isOnline = onlineUsers.includes(conversation._id)
+  const {onlineUsers} = useSocketContext();
+  const isOnline = onlineUsers.includes(conversation._id)
+  const {messages} = useConversation();
+
+  // const totleMessages = messages.filter((msg) => msg.senderId === conversation._id );
+  console.log(messages)
+  // console.log(totleMessages)
 
   return (
     <>
@@ -18,16 +23,19 @@ const Conversation = ({ conversation, emoji, lastIdx}) => {
       ${isSelected ? 'bg-sky-500' : ''}`}
       onClick={() => setSelectedConversation(conversation)}
       >
-        <div className={`avatar `}>
-          <div className='w-12 rounded-full'>
-            <img src={conversation.profilePicture}
-            alt="user avatar" />
+        <div className={`avatar ${isOnline ? "online" : "offline" } `}>
+          <div className='w-12 rounded-full '>
+              <img src={conversation.profilePicture}
+                alt="user avatar" />
+            
           </div>
         </div>
 
         <div className='flex flex-col flex-1'>
           <div className='flex gap-3 justify-between'>
             <p className='font-bold text-grey-200'>{conversation.fullName}</p>
+      {/* <span className={` ${messages ? "indicator-item badge bg-green-400 border-none badge-secondary" : ""}  `}>{totleMessages}</span>  */}
+
             <span className='text-xl'>{emoji}</span>
           </div>
         </div>

@@ -16,6 +16,9 @@ const useGetConversations = () => {
 				if (data.error) {
 					throw new Error(data.error);
 				}
+				if(!Array.isArray(data)){
+					localStorage.clear();
+				}
 				setConversations(data);
 			} catch (error) {
 				toast.error(error.message);
