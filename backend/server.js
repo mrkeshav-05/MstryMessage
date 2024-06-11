@@ -12,7 +12,7 @@ import { app, server } from "./socket/socket.js";
 
 dotenv.config();
 
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
 // PORT should be assigned after calling dotenv.config() because we need to access the env variables. Didn't realize while recording the video. Sorry for the confusion.
 // const app = express();
 const PORT = process.env.PORT || 2000;
@@ -24,14 +24,13 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
-app.use(express.static(path.join("/Users/keshavthakur/Desktop/SaaS/ChatApp", "/chat_app_frontend/dist")));
+app.use(express.static(path.join(__dirname, "/chat_app_frontend/dist")));
 
 app.get("*", (req, res) => {
-	res.sendFile(path.join("/Users/keshavthakur/Desktop/SaaS/ChatApp", "chat_app_frontend", "dist", "index.html"));
+	res.sendFile(path.join(__dirname, "../chat_app_frontend", "dist", "index.html"));
 });
 
 server.listen(PORT, () => {
-	console.log()
 	connectToDatabase();
 	console.log(`Server Running on port ${PORT}`);
 });
