@@ -8,11 +8,11 @@ const Conversations = () => {
   console.log(getRandomEmoji())
   return (
     <div className='py-2 flex-1 flex-col overflow-auto'>
-      {
+      {/* {
         Array.isArray(conversations) && !loading && (
           <p className='text-center text-2xl text-gray-400'>Koi nhi hai <br /> baat karne ko 🥱😴</p>
         )
-      }
+      } */}
       {loading ? (
         <span className='loading loading-spinner mx-auto'></span>
       ) : (
