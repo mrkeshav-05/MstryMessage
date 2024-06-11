@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --trace-warnings -r dotenv/config --experimental-json-modules server.js"
+    "server": "nodemon --trace-warnings -r dotenv/config --experimental-json-modules server.js",
+    "start": "node server.js",
+    "build": "npm install && cd .. && npm install --prefix chat_app_frontend && npm run build --prefix chat_app_frontend"
   },
   "keywords": [],
   "author": "",
