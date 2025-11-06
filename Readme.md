@@ -6,6 +6,7 @@ Welcome to MstryMessage! This is a modern, full-stack real-time chat application
 
 - [Features](#features)
 - [Demo](#demo)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -30,6 +31,17 @@ Welcome to MstryMessage! This is a modern, full-stack real-time chat application
 ## Demo
 
 A live demo of the application is available at: [Live Demo](https://mstrymessage.onrender.com)
+
+## Screenshots
+
+### Login Page
+![Login Page](screenshots/login.png)
+
+### Chat Interface
+![Chat Interface](screenshots/chat.png)
+
+### User List & Online Status
+![User List](screenshots/userlist.png)
 
 ## Installation
 
