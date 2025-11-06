@@ -2,6 +2,8 @@ import { useState } from "react";
 // import {toast} from 'react-hot-toast';
 import { toast } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
+import { getApiUrl } from "../config/api";
+
 const useSignUp = () => {
 
   const [loading, setLoading] = useState(false)
@@ -14,9 +16,11 @@ const useSignUp = () => {
 
     setLoading(true);
     try {
-      const res = await fetch(`/api/auth/signup`, {
+      const apiUrl = getApiUrl();
+      const res = await fetch(`${apiUrl}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include', // Important: This sends cookies with the request
         body: JSON.stringify({fullName, username, password, confirmPassword, gender})
       });
 

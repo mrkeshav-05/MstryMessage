@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 // import toast from 'react-hot-toast';
 import { useAuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
+import { getApiUrl } from '../config/api';
 
 const useLogin = () => {
   
@@ -13,12 +14,11 @@ const useLogin = () => {
     if (!isSuccess) { return; }
     try {
       setLoading(true);
-      // console.log('/api/auth/login')
-      // console.log()
-      // console.log('Sending request to http://localhost:8000/api/auth/login');
-      const res = await fetch('/api/auth/login', {
+      const apiUrl = getApiUrl();
+      const res = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({username, password})
       });
       const data = await res.json();

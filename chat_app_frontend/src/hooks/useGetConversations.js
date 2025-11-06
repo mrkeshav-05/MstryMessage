@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { getApiUrl } from "../config/api";
 
 const useGetConversations = () => {
 	const [loading, setLoading] = useState(false);
@@ -9,7 +10,10 @@ const useGetConversations = () => {
 		const getConversations = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch("/api/users")
+				const apiUrl = getApiUrl();
+				const res = await fetch(`${apiUrl}/api/users`, {
+					credentials: 'include'
+				})
 				console.log(res.json)
 				const data = await res.json();
 				console.log(data)
