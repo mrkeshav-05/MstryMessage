@@ -35,13 +35,16 @@ A live demo of the application is available at: [Live Demo](https://mstrymessage
 ## Screenshots
 
 ### Login Page
-![Login Page](screenshots/login.png)
+<img width="557" height="692" alt="image" src="https://github.com/user-attachments/assets/74a942a9-ee70-45d5-964d-045de2c4f4f9" />
+
 
 ### Chat Interface
-![Chat Interface](screenshots/chat.png)
+<img width="929" height="693" alt="image" src="https://github.com/user-attachments/assets/5cdd7960-7003-42fd-99fa-113364196513" />
+
 
 ### User List & Online Status
-![User List](screenshots/userlist.png)
+![Uploading image.png…]()
+
 
 ## Installation
 
