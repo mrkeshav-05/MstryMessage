@@ -29,15 +29,28 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// API Routes - these should be defined before static file serving
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
-app.use(express.static(path.join(__dirname, "../chat_app_frontend/dist")));
-
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "../chat_app_frontend", "dist", "index.html"));
+// Health check endpoint for monitoring
+app.get("/health", (req, res) => {
+	res.status(200).json({ status: "OK", message: "Server is running" });
 });
+
+// Serve static files and handle client-side routing (only in production with built frontend)
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "../chat_app_frontend/dist")));
+
+	app.get("*", (req, res) => {
+		res.sendFile(path.join(__dirname, "../chat_app_frontend", "dist", "index.html"));
+	});
+} else {
+	app.get("/", (req, res) => {
+		res.json({ message: "API is running..." });
+	});
+}
 
 server.listen(PORT, () => {
 	console.log(__dirname)

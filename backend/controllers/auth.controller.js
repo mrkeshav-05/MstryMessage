@@ -4,7 +4,12 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
 	try {
+		console.log("Signup request received:", { body: req.body });
 		const { fullName, username, password, confirmPassword, gender } = req.body;
+
+		if (!fullName || !username || !password || !confirmPassword || !gender) {
+			return res.status(400).json({ error: "All fields are required" });
+		}
 
 		if (password !== confirmPassword) {
 			return res.status(400).json({ error: "Passwords don't match" });
@@ -48,14 +53,21 @@ export const signup = async (req, res) => {
 			res.status(400).json({ error: "Invalid user data" });
 		}
 	} catch (error) {
-		console.log("Error in signup controller", error.message);
-		res.status(500).json({ error: "Internal Server Error" });
+		console.log("Error in signup controller:", error.message);
+		console.error("Full error:", error);
+		res.status(500).json({ error: "Internal Server Error", details: error.message });
 	}
 };
 
 export const login = async (req, res) => {
 	try {
+		console.log("Login request received:", { username: req.body.username });
 		const { username, password } = req.body;
+
+		if (!username || !password) {
+			return res.status(400).json({ error: "Username and password are required" });
+		}
+
 		const user = await User.findOne({ username });
 		const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
 
