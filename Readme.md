@@ -35,8 +35,8 @@ A live demo of the application is available at: [Live Demo](https://mstrymessage
 ## Screenshots
 
 ### Login Page
-<img width="561" height="687" alt="image" src="https://github.com/user-attachments/assets/3fa588a4-e97e-41ee-9d6c-10be8f6de4c8" />
-
+<img width="966" height="599" alt="image" src="https://github.com/user-attachments/assets/eb963293-5acd-48cb-854b-c06cdc7a74c7" />
+<img width="802" height="759" alt="image" src="https://github.com/user-attachments/assets/b7aa4d3e-a450-4d2b-8dae-d5ff0444a118" />
 
 
 ### Chat Interface
@@ -44,7 +44,7 @@ A live demo of the application is available at: [Live Demo](https://mstrymessage
 
 
 ### User List & Online Status
-<img width="966" height="599" alt="image" src="https://github.com/user-attachments/assets/eb963293-5acd-48cb-854b-c06cdc7a74c7" />
+<img width="561" height="687" alt="image" src="https://github.com/user-attachments/assets/3fa588a4-e97e-41ee-9d6c-10be8f6de4c8" />
 
 
 
