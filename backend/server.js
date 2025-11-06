@@ -19,7 +19,16 @@ const PORT = process.env.PORT || 2000;
 
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser());
-// app.use(cors());
+
+// CORS configuration
+const corsOptions = {
+	origin: process.env.NODE_ENV === "production"
+		? process.env.FRONTEND_URL || "*"
+		: "http://localhost:3000",
+	credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
